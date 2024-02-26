@@ -23,11 +23,11 @@ public class JokeFileVisitor extends SimpleFileVisitor<Path> {
     @Override
     public FileVisitResult preVisitDirectory(Path directory, BasicFileAttributes attrs) throws IOException {
         Files.createFile(Path.of(directory + "\\\\joke.java"));
-        writeCod(directory);
+        writeCode(directory);
         return CONTINUE;
     }
 
-    public void writeCod(Path directory) throws IOException {
+    public void writeCode(Path directory) throws IOException {
         OutputStream writer = Files.newOutputStream(Path.of(directory + "\\\\joke.java"));
         writer.write(PROGRAM_TEXT.getBytes());
         writer.close();
